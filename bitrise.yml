@@ -1,7 +1,17 @@
----
-format_version: '11'
-default_step_lib_source: 'https://github.com/bitrise-io/bitrise-steplib.git'
+format_version: "11"
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 project_type: ios
+app:
+  envs:
+  - BITRISE_PROJECT_PATH: LGTMApp.xcworkspace
+    opts:
+      is_expand: false
+  - BITRISE_SCHEME: LGTMApp
+    opts:
+      is_expand: false
+  - BITRISE_EXPORT_METHOD: app-store
+    opts:
+      is_expand: false
 trigger_map:
 - push_branch: '*'
   workflow: primary
@@ -13,22 +23,23 @@ workflows:
     - git-clone@6: {}
     - cache-pull@2: {}
     - script@1:
-        title: Do anything with Script step
+        title: Bundle Install
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            # write your script here
+            bundle install
     - certificate-and-profile-installer@1: {}
     - recreate-user-schemes@1:
         inputs:
         - project_path: $BITRISE_PROJECT_PATH
-    - xcode-test@2: {}
+    - fastlane@3:
+        inputs:
+        - lane: tests
     - deploy-to-bitrise-io@1: {}
     - cache-push@2: {}
-app:
-  envs:
-  - opts:
-      is_expand: false
-    BITRISE_PROJECT_PATH: LGTMApp.xcworkspace
-  - opts:
-      is_expand: false
-    BITRISE_SCHEME: LGTMApp
-  - opts:
-      is_expand: false
-    BITRISE_EXPORT_METHOD: app-store
