@@ -5,6 +5,9 @@
       location = "group:LGTMApp/LGTMApp.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:BuildTools">
+   </FileRef>
+   <FileRef
       location = "group:">
    </FileRef>
 </Workspace>

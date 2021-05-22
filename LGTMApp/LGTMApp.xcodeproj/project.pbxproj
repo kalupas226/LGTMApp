@@ -83,6 +83,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B4994C52657EC320018AE0C /* Build configuration list for PBXNativeTarget "LGTMApp" */;
 			buildPhases = (
+				1B9948072659703300D16BB8 /* Swift Format */,
 				1B4994B22657EC310018AE0C /* Sources */,
 				1B4994B32657EC310018AE0C /* Frameworks */,
 				1B4994B42657EC310018AE0C /* Resources */,
@@ -142,6 +143,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B9948072659703300D16BB8 /* Swift Format */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Format";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd ..\nSDKROOT=macosx\nswift run -c release --package-path BuildTools swiftformat \"$SRCROOT\" Sources Tests --swiftversion 5.3\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1B4994B22657EC310018AE0C /* Sources */ = {
