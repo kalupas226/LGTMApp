@@ -22,9 +22,9 @@ public struct AppEnvironment: Equatable {
     public init() {}
 }
 
-public let appReducer = Reducer<AppState, AppAction, AppEnvironment> { state, action, environment in
+public let appReducer = Reducer<AppState, AppAction, AppEnvironment> { state, action, _ in
     switch action {
-    case .textFieldChanged(let text):
+    case let .textFieldChanged(text):
         state.testText = text
         return .none
     }

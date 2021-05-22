@@ -1,6 +1,6 @@
 //
 //  SampleTest.swift
-//  
+//
 //
 //  Created by Aikawa Kenta on 2021/05/21.
 //
@@ -17,7 +17,7 @@ class SampleTest: XCTestCase {
             reducer: appReducer,
             environment: AppEnvironment()
         )
-        
+
         store.send(.textFieldChanged("abc")) {
             $0.testText = "abc"
         }
