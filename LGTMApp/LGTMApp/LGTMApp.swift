@@ -6,13 +6,20 @@
 //
 
 import AppFeature
+import ComposableArchitecture
 import SwiftUI
 
 @main
 struct LGTMApp: App {
+    let store = Store(
+        initialState: AppState(),
+        reducer: appReducer,
+        environment: AppEnvironment()
+    )
+
     var body: some Scene {
         WindowGroup {
-            AppView()
+            AppView(store: store)
         }
     }
 }
