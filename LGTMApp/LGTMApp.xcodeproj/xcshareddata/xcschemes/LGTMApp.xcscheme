@@ -35,7 +35,7 @@
                BlueprintIdentifier = "AppFeatureTests"
                BuildableName = "AppFeatureTests"
                BlueprintName = "AppFeatureTests"
-               ReferencedContainer = "container:../Sources">
+               ReferencedContainer = "container:..">
             </BuildableReference>
          </TestableReference>
       </Testables>

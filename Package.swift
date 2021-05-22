@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "Sources",
+    name: "LGTMApp",
     platforms: [
         .iOS(.v13),
         .macOS(.v10_15),
