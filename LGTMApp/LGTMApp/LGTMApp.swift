@@ -14,7 +14,7 @@ struct LGTMApp: App {
     let store = Store(
         initialState: AppState(),
         reducer: appReducer,
-        environment: AppEnvironment()
+        environment: AppEnvironment(avFoundationManager: .live)
     )
 
     var body: some Scene {
