@@ -15,14 +15,7 @@ class SampleTest: XCTestCase {
         let store = TestStore(
             initialState: AppState(),
             reducer: appReducer,
-            environment: AppEnvironment()
+            environment: AppEnvironment(avFoundationManager: .live)
         )
-
-        store.send(.textFieldChanged("abc")) {
-            $0.testText = "abc"
-        }
-        store.send(.textFieldChanged("def")) {
-            $0.testText = "def"
-        }
     }
 }

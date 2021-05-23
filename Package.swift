@@ -11,6 +11,7 @@ let package = Package(
     ],
     products: [
         .library(name: "AppFeature", targets: ["AppFeature"]),
+        .library(name: "AVFoundationManager", targets: ["AVFoundationManager"]),
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", from: "0.18.0"),
@@ -19,6 +20,7 @@ let package = Package(
         .target(
             name: "AppFeature",
             dependencies: [
+                "AVFoundationManager",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
@@ -26,6 +28,12 @@ let package = Package(
             name: "AppFeatureTests",
             dependencies: [
                 "AppFeature",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+            ]
+        ),
+        .target(
+            name: "AVFoundationManager",
+            dependencies: [
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
